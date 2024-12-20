@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.0" orientation="hexagonal" renderorder="right-down" width="10" height="6" tilewidth="128" tileheight="128" infinite="0" hexsidelength="64" staggeraxis="x" staggerindex="odd" backgroundcolor="#beca6e" nextlayerid="2" nextobjectid="1">
+ <tileset firstgid="1" source="../tileset/Flat/Tiled Tsx/Terrain 1 - Flat - No Outline - 128x128.tsx"/>
+ <layer id="1" name="main" width="10" height="6">
+  <data encoding="csv">
+3,3,3,3,3,3,3,3,3,3,
+3,3,3,12,3,12,3,3,3,3,
+3,3,12,12,12,12,12,12,3,3,
+3,3,3,12,12,12,12,3,3,3,
+3,3,3,3,12,3,3,3,3,3,
+3,3,3,3,3,3,3,3,3,3
+</data>
+ </layer>
+</map>

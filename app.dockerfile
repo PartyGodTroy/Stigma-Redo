@@ -36,5 +36,5 @@ COPY . .
 # run the app
 USER bun
 EXPOSE 2567/tcp
-ENTRYPOINT [ "bun", "run", "src/index.ts" ]
+ENTRYPOINT [ "bun", "run", "src/server/index.ts" ]
 
