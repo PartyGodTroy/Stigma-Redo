@@ -1,12 +1,17 @@
 import config from "@colyseus/tools";
 import { monitor } from "@colyseus/monitor";
 import { playground } from "@colyseus/playground";
+import express from "express";
+import path from "path"
 
 /**
  * Import your Room files
  */
 import { MyRoom } from "../rooms/MyRoom";
 import { PVPRoom } from "../rooms/PVPRoom";
+
+
+console.log()
 
 export default config({
 
@@ -22,6 +27,7 @@ export default config({
     },
 
     initializeExpress: (app) => {
+        
         /**
          * Bind your custom express routes here:
          * Read more: https://expressjs.com/en/starter/basic-routing.html
@@ -30,6 +36,9 @@ export default config({
         app.get("/hello_world", (req, res) => {
             res.send("It's time to kick ass and chew bubblegum!");
         });
+
+        app.use('/app', express.static(path.join(__dirname, '../../app')))
+        app.use('/assets', express.static(path.join(__dirname, '../../assets')))
 
         /**
          * Use @colyseus/playground

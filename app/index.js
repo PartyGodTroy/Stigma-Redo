@@ -4374,4 +4374,12 @@ var require_lib = __commonJS((exports) => {
 
 // src/client/index.ts
 var Colyseus = __toESM(require_lib(), 1);
-var client = new Colyseus.Client("ws://localhost:2567");
+function createClient(url) {
+  const client = new Colyseus.Client(url);
+  return {
+    client
+  };
+}
+export {
+  createClient
+};

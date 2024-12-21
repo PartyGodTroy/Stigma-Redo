@@ -1,3 +1,9 @@
 import * as Colyseus from "colyseus.js"; // not necessary if included via <script> tag.
 
-var client = new Colyseus.Client('ws://localhost:2567');
+// 'ws://localhost:2567'
+export function createClient( url:string){
+    const client = new Colyseus.Client(url);
+    return {
+        client
+    }
+}

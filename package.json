@@ -9,12 +9,12 @@
   },
   "scripts": {
     "start": "tsx watch src/server/index.ts",
-    "build-client": "bun build ./src/client/index.ts --outdir ./build",
-    "start-client": "bun build ./src/client/index.ts --outdir ./build --watch",
-    "loadtest": "tsx loadtest/example.ts --room my_room --numClients 2",
+    "build-client": "bun build ./src/client/index.ts --outdir ./app",
+    "start-client": "bun build ./src/client/index.ts --outdir ./app --watch",
     "build": "bun run clean && tsc",
     "clean": "rimraf build",
-    "test": "mocha -r tsx test/**_test.ts --exit --timeout 15000"
+    "test": "mocha -r tsx test/**_test.ts --exit --timeout 15000",
+    "loadtest": "tsx loadtest/example.ts --room my_room --numClients 2"
   },
   "author": "",
   "license": "UNLICENSED",
