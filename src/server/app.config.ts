@@ -3,15 +3,14 @@ import { monitor } from "@colyseus/monitor";
 import { playground } from "@colyseus/playground";
 import express from "express";
 import path from "path"
+import { JWT } from "@colyseus/auth";
+import formidable from "express-formidable"
 
 /**
  * Import your Room files
  */
 import { MyRoom } from "../rooms/MyRoom";
 import { PVPRoom } from "../rooms/PVPRoom";
-
-
-console.log()
 
 export default config({
 
@@ -21,31 +20,31 @@ export default config({
          */
         gameServer.define('my_room', MyRoom);
         gameServer.define('pvp_room', PVPRoom);
-
-        
-
     },
 
     initializeExpress: (app) => {
-        
+
+        app.use(formidable());
+
         /**
          * Bind your custom express routes here:
          * Read more: https://expressjs.com/en/starter/basic-routing.html
          */
-
-        app.get("/hello_world", (req, res) => {
-            res.send("It's time to kick ass and chew bubblegum!");
-        });
-
         app.use('/app', express.static(path.join(__dirname, '../../app')))
         app.use('/assets', express.static(path.join(__dirname, '../../assets')))
+
+        app.post("/login", async (req, res) => {
+            const token = await JWT.sign({},{})
+            res.send(token);
+        });
+ 
 
         /**
          * Use @colyseus/playground
          * (It is not recommended to expose this route in a production environment)
          */
         if (process.env.NODE_ENV !== "production") {
-            app.use("/", playground);
+            app.use("/admin-playground", playground);
         }
 
         /**
@@ -63,3 +62,5 @@ export default config({
          */
     }
 });
+
+

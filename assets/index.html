@@ -2,10 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1, shrink-to-fit=no" 
+    />
     <title>Stigma</title>
+    <script type="module" src="/app/app.js"></script>
 </head>
 <body>
-    
+    <script type="module">
+        const loginForm = document.getElementById('login-form');
+        loginForm.onsubmit = function (e){
+            e.preventDefault();
+            fetch('/login', {
+                method: 'post',
+                body: new FormData(e.target)
+            }).then( resp => resp.json())
+            .then( j => console.log(j) )
+        }
+    </script>
+    <form id="login-form">
+        <label for="username">
+            <span>Username</span>
+            <input type="text" id="username" name="username">
+        </label>
+        <label for="password">
+            <span>Password</span>
+            <input type="password" id="password" name="password">
+        </label>
+        <button type="submit" title="login">Login</button>
+    </form>
 </body>
 </html>

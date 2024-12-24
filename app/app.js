@@ -4372,7 +4372,7 @@ var require_lib = __commonJS((exports) => {
   (0, Serializer_1.registerSerializer)("none", NoneSerializer_1.NoneSerializer);
 });
 
-// src/client/index.ts
+// src/client/app.ts
 var Colyseus = __toESM(require_lib(), 1);
 function createClient(url) {
   const client = new Colyseus.Client(url);
